@@ -1,0 +1,124 @@
+$defaultFlexBoxAlign: center;
+$defaultFlexBoxJustify: center;
+@mixin flexbox($justify: $defaultFlexBoxJustify, $align: $defaultFlexBoxAlign) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin inlineFlexbox($justify: $defaultFlexBoxJustify, $align: $defaultFlexBoxAlign) {
+  display: inline-flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin clearList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin imgCenter {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+$defaultSpacingUnit: 8;
+@function spacing($top, $right: 0, $bottom: 0, $left: 0) {
+  @if $top != 0 and $right == 0 and $bottom == 0 and $left == 0 {
+    @return #{$top * $defaultSpacingUnit}#{"px"};
+  }
+
+  @if $top != 0 and $right != 0 and $bottom == 0 and $left == 0 {
+    @return #{$top * $defaultSpacingUnit}#{"px"} #{$right * $defaultSpacingUnit}#{"px"};
+  }
+
+  @if $top != 0 and $right != 0 and $bottom != 0 and $left == 0 {
+    @return #{$top * $defaultSpacingUnit}#{"px"} #{$right * $defaultSpacingUnit}#{"px"} #{$bottom * $defaultSpacingUnit}#{"px"};
+  }
+
+  @if $top != 0 and $right != 0 and $bottom != 0 and $left != 0 {
+    @return #{$top * $defaultSpacingUnit}#{"px"} #{$right * $defaultSpacingUnit}#{"px"} #{$bottom * $defaultSpacingUnit}#{"px"} #{$left * $defaultSpacingUnit}#{"px"};
+  }
+}
+
+@mixin noWrap($width) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin paginationItem {
+  // ????
+  cursor: pointer;
+}
+
+@mixin grid($columns: repeat(2, 1fr), $rows: 1fr, $rowGap: 0, $columnGap: 0) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  grid-column-gap: $columnGap;
+  grid-row-gap: $rowGap;
+}
+
+@mixin rotateAnimation {
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+// Media request mixins MobileFirst
+@mixin forMobile {
+  @media screen and (max-width: 829.5px) { // if decimals = .99px - there are no changes in Chrome 
+    @content;
+  }
+}
+
+@mixin forTablet {
+  @media screen and (max-width: 1439.5px) { // Also
+    @content;
+  }
+}
+
+@mixin forDesktopSm {
+  @media screen and (max-width: 1919.99px) {
+    @content;
+  }
+}
+
+
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $format: 'woff') {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    @if $format == 'woff' {
+      src: url('#{$file-path}.#{$format}') format($format);
+    } @else {
+      src: local($font-family), url('#{$file-path}.#{$format}') format('truetype');
+    }
+  }
+}

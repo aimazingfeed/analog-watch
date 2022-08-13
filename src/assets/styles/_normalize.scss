@@ -1,0 +1,80 @@
+html,
+body,
+div[class='App'] {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  scroll-behavior: smooth;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Open-Sans', sans-serif;
+
+
+  div,
+  input,
+  optgroup,
+  select,
+  textarea {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    transition: 200ms;
+  }
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    // transition: $transition-time;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+  img {
+    // transition: $transition-time;
+  }
+
+  button {
+    box-sizing: border-box;
+  }
+
+  .flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
