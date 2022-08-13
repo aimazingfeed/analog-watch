@@ -8,7 +8,7 @@ import { Loader } from 'components/';
 import styles from './styles.module.scss';
 import { links } from './clock.helper';
 
-const TIME_API_URL = 'http://worldtimeapi.org/api/timezone/Europe';
+const TIME_API_URL = 'https://worldtimeapi.org/api/timezone/Europe';
 
 export const Clock = () => {
   const { pathname } = useLocation();
