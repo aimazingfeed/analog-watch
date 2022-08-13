@@ -41,7 +41,7 @@ export const Clock = () => {
                       {
                         `Current time in 
                         ${pathname.slice(1, pathname.length) ? pathname.slice(1, pathname.length) : 'Moscow'}
-                        is - ${ h || m || s ? `${ h }:${ m }:${ s }` : '...'}`
+                        is - ${ h }:${ m }:${ s }`
                       }
                 </div>
                 <div className={styles.countrySelector}>
